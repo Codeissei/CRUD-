@@ -1,8 +1,8 @@
 from flask import render_template, request, redirect, url_for, flash
-from my_memo_app.app import app
+from app import app
 # ▼▼▼ リスト 11-4の追加 ▼▼▼
-from my_memo_app.models import db, Memo, User
-from my_memo_app.forms import MemoForm, LoginForm, SignUpForm
+from models import db, Memo, User
+from forms import MemoForm, LoginForm, SignUpForm
 from flask_login import login_user, logout_user
 # ▲▲▲ リスト 11-4の追加 ▲▲▲
 
