@@ -3,7 +3,7 @@ from app import app
 # ▼▼▼ リスト 11-4の追加 ▼▼▼
 from models import db, Memo, User
 from forms import MemoForm, LoginForm, SignUpForm
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required #<= リスト11-8の追加
 # ▲▲▲ リスト 11-4の追加 ▲▲▲
 
 # ==================================================
@@ -36,6 +36,7 @@ def login():
 
 # ログアウト
 @app.route("/logout")
+@login_required     #<= リスト11-8の追加
 def logout():
     # 現在ログインしているユーザーをログアウトする
     logout_user()
@@ -71,6 +72,7 @@ def register():
 
 # 一覧
 @app.route("/memo/")
+@login_required     #<= リスト11-8の追加
 def index():
     # メモ全件取得
     memos = Memo.query.all()
@@ -79,6 +81,7 @@ def index():
 
 # 登録（Form使用）
 @app.route("/memo/create", methods=["GET", "POST"])
+@login_required     #<= リスト11-8の追加
 def create():
     # Formインスタンス生成
     form = MemoForm()
@@ -100,6 +103,7 @@ def create():
 
 # 更新（Form使用）
 @app.route("/memo/update/<int:memo_id>", methods=["GET", "POST"])
+@login_required     #<= リスト11-8の追加
 def update(memo_id):
     # データベースからmemo_idに一致するメモを取得し、
     # 見つからない場合は404エラーを表示
@@ -122,6 +126,7 @@ def update(memo_id):
 
 # 削除
 @app.route("/memo/delete/<int:memo_id>")
+@login_required     #<= リスト11-8の追加
 def delete(memo_id):
     # データベースからmemo_idに一致するメモを取得し、
     # 見つからない場合は404エラーを表示
