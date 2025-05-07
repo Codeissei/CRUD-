@@ -10,3 +10,7 @@ my_memo_app.egg-info/SOURCES.txt
 my_memo_app.egg-info/dependency_links.txt
 my_memo_app.egg-info/requires.txt
 my_memo_app.egg-info/top_level.txt
+my_memo_app/auth/__init__.py
+my_memo_app/auth/views.py
+my_memo_app/memo/__init__.py
+my_memo_app/memo/views.py

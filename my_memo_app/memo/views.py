@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from my_memo_app.models import db, Memo
+from ..models import db, Memo
 from my_memo_app.forms import MemoForm
 from flask_login import login_required, current_user  # <= リスト13-2追加
 

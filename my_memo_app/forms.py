@@ -1,8 +1,8 @@
 # ▼▼▼ リスト 11-2の修正 ▼▼▼
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, PasswordField
-from wtforms.validators import DataRequired, Length, ValidationError, Email, EqualTo
-from my_memo_app.models import Memo, User
+from wtforms.validators import DataRequired, Length, ValidationError
+from .models import Memo, User
 # ▲▲▲ リスト 11-2の修正 ▲▲▲
 
 # ==================================================
@@ -58,3 +58,12 @@ class SignUpForm(LoginForm):
         if user:
             raise ValidationError('そのユーザー名は既に使用されています')
 # ▲▲▲ リスト 11-2の追加 ▲▲▲
+
+# ▼▼▼ リスト 14-6の追加 ▼▼▼
+# Wiki用入力クラス
+class WikiForm(FlaskForm):
+    # タイトル
+    keyword = StringField('検索ワード：', render_kw={"placeholder": "入力してください"})
+    # ボタン
+    submit = SubmitField('Wiki検索')
+# ▲▲▲ リスト 14-6の追加 ▲▲▲

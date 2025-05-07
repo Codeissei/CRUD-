@@ -8,5 +8,5 @@ sys.path.insert(0, project_root)
 # アプリケーションを実行
 from my_memo_app.app import app
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True) 
