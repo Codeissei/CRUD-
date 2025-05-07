@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
-from models import db, User
-from forms import LoginForm, SignUpForm
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+from my_memo_app.models import db, User
+from my_memo_app.forms import LoginForm, SignUpForm
 from flask_login import login_user, logout_user, login_required
 
 # authのBlueprint

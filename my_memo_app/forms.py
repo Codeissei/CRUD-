@@ -2,7 +2,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Length, ValidationError, Email, EqualTo
-from models import Memo, User
+from my_memo_app.models import Memo, User
 # ▲▲▲ リスト 11-2の修正 ▲▲▲
 
 # ==================================================

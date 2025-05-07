@@ -1,18 +1,16 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask_migrate import Migrate
-from models import db, User
+from my_memo_app.models import db, User
 from flask_login import LoginManager
-# ▼▼▼ リスト 12-11の追加 ▼▼▼
-from auth.views import auth_bp
-from memo.views import memo_bp
-# ▲▲▲ リスト 12-11の追加 ▲▲▲
+from my_memo_app.auth.views import auth_bp
+from my_memo_app.memo.views import memo_bp
 
 # ==================================================
 # Flask
 # ==================================================
 app = Flask(__name__)
 # 設定ファイル読み込み
-app.config.from_object("config.Config")
+app.config.from_object("my_memo_app.config.Config")
 # dbとFlaskとの紐づけ
 db.init_app(app)
 # マイグレーションとの紐づけ（Flaskとdb）
@@ -23,21 +21,20 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 # ログインが必要なページにアクセスしようとしたときに表示されるメッセージを変更
 login_manager.login_message = "認証していません：ログインしてください"
-# ▼▼▼ リスト 12-11の修正 ▼▼▼
 # 未認証のユーザーがアクセスしようとした際に
 # リダイレクトされる関数名を設定する(ブループリント対応)
 login_manager.login_view = 'auth.login'
 # blueprintをアプリケーションに登録
 app.register_blueprint(auth_bp)
 app.register_blueprint(memo_bp)
-# ▲▲▲ リスト 12-11の修正 ▲▲▲
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# viewsのインポート
-from views import *
+@app.route('/')
+def index():
+    return redirect(url_for('auth.login'))
 
 # ==================================================
 # 実行
