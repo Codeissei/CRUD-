@@ -1,0 +1,12 @@
+setup.py
+my_memo_app/__init__.py
+my_memo_app/app.py
+my_memo_app/config.py
+my_memo_app/forms.py
+my_memo_app/models.py
+my_memo_app/views.py
+my_memo_app.egg-info/PKG-INFO
+my_memo_app.egg-info/SOURCES.txt
+my_memo_app.egg-info/dependency_links.txt
+my_memo_app.egg-info/requires.txt
+my_memo_app.egg-info/top_level.txt

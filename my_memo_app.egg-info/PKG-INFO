@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: my_memo_app
+Version: 0.1
+Requires-Dist: flask
+Requires-Dist: flask-sqlalchemy
+Requires-Dist: flask-migrate
+Requires-Dist: flask-login
+Requires-Dist: flask-wtf
+Dynamic: requires-dist
